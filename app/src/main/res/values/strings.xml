@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">KODE</string>
+    <string name="firstNameTextView">Алексей Иванов</string>
+    <string name="userTagTextView">mi</string>
+    <string name="positionTextView">office</string>
+    <string name="text_of_edit_text">Введи имя, тег, почту...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
