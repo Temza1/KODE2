@@ -1,6 +1,5 @@
-package com.moinonemoi.kode;
+package com.moinonemoi.kode.app.presentation;
 
-import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.moinonemoi.kode.app.data.Item;
+import com.moinonemoi.kode.R;
 
 import java.util.ArrayList;
 import java.util.List;

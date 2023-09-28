@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.moinonemoi.kode.Fragments.AndroidWorkerList;
+import com.moinonemoi.kode.app.presentation.Fragments.AndroidWorkerList;
 
 public class FragmentAdapter extends FragmentStateAdapter {
 

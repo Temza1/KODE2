@@ -1,6 +1,7 @@
 
-package com.moinonemoi.kode;
+package com.moinonemoi.kode.app.data;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -13,6 +14,7 @@ public class Item {
     @SerializedName("id")
     @Expose
     @PrimaryKey
+    @NonNull
     private String id;
     @SerializedName("avatarUrl")
     @Expose

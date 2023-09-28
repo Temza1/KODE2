@@ -1,32 +1,32 @@
-package com.moinonemoi.kode;
+package com.moinonemoi.kode.app.presentation.presentation;
 
-import androidx.lifecycle.ViewModel;
+import com.moinonemoi.kode.ApiService;
+import com.moinonemoi.kode.app.data.Item;
+import com.moinonemoi.kode.app.data.UsersDao;
 
-public class TestActivityViewModel extends ViewModel {
+import java.util.List;
 
-    /*private ApiService apiService;
-    private CompositeDisposable compositeDisposable;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Action;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+
+public class FirstFragmentPresenter implements FragmentPresenter{
+
     private UsersDao usersDao;
+    private ApiService apiService;
+    private CompositeDisposable compositeDisposable;
+    private FragmentView view;
 
-
-    public MutableLiveData<List<Item>> items = new MutableLiveData<>();
-
-    public MutableLiveData<List<Item>> getItem() {
-        return items;
-    }
-
-    public TestActivityViewModel(@NonNull Application application) {
-        usersDao = UsersDataBase.getInstance(application).usersDao();
-    }
-
-
-    public void loadUsers(ItemAdapter itemAdapter) {
+    public void loadUsers() {
         Disposable disposable = apiService.loadUsers()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<List<Item>>() {
                     @Override
                     public void accept(List<Item> users) throws Throwable {
-                        addDB(users,itemAdapter);
+                        addDB(users);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -38,13 +38,13 @@ public class TestActivityViewModel extends ViewModel {
         compositeDisposable.add(disposable);
     }
 
-    public void addDB(List<Item> users,ItemAdapter itemAdapter) {
+    public void addDB(List<Item> users) {
         Disposable disposable = usersDao.add(users).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action() {
                     @Override
                     public void run() throws Throwable {
-                        itemAdapter.setUsers(users);
+                        view.showResult(users);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -56,9 +56,6 @@ public class TestActivityViewModel extends ViewModel {
         compositeDisposable.add(disposable);
     }
 
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-        compositeDisposable.dispose();
-    }*/
+
+
 }

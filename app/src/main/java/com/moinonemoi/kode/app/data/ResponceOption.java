@@ -1,4 +1,4 @@
-package com.moinonemoi.kode;
+package com.moinonemoi.kode.app.data;
 
 public enum ResponceOption {
 

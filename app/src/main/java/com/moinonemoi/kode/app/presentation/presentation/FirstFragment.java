@@ -1,4 +1,4 @@
-package com.moinonemoi.kode;
+package com.moinonemoi.kode.app.presentation.presentation;
 
 import android.app.Application;
 import android.content.Context;
@@ -7,31 +7,31 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.moinonemoi.kode.app.App;
+import com.moinonemoi.kode.app.data.Item;
+import com.moinonemoi.kode.app.data.UsersDataBase;
+import com.moinonemoi.kode.app.presentation.ItemAdapter;
+import com.moinonemoi.kode.R;
 
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-import io.reactivex.rxjava3.functions.Action;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.schedulers.Schedulers;
+import javax.inject.Inject;
 
 
-public class FirstFragment extends Fragment {
+public class FirstFragment extends Fragment implements FragmentView{
 
 
     private RecyclerView recyclerViewUsers;
     private ItemAdapter itemAdapter;
-    private TestActivityViewModel viewModel;
     private UsersDataBase usersDataBase;
+    @Inject FirstFragmentPresenter presenter;
 
 
     @Override
@@ -48,7 +48,6 @@ public class FirstFragment extends Fragment {
 
         recyclerViewUsers = view.findViewById(R.id.recyclerViewUsers);
         recyclerViewUsers.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
-        viewModel = new ViewModelProvider(this).get(TestActivityViewModel.class);
         itemAdapter = new ItemAdapter();
         recyclerViewUsers.setAdapter(itemAdapter);
 
@@ -62,10 +61,17 @@ public class FirstFragment extends Fragment {
         Application application = requireActivity().getApplication();
         usersDataBase = UsersDataBase.getInstance(application);
 
-        viewModel.loadUsers(itemAdapter);
+        App.
+        presenter.loadUsers();
+
+        /*viewModel.loadUsers(itemAdapter);*/
 
 
     }
 
 
+    @Override
+    public void showResult(List<Item> users) {
+        itemAdapter.setUsers(users);
+    }
 }

@@ -1,4 +1,4 @@
-package com.moinonemoi.kode.Fragments;
+package com.moinonemoi.kode.app.presentation.Fragments;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.moinonemoi.kode.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link QaWorkerList#newInstance} factory method to
+ * Use the {@link PrWorkerList#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QaWorkerList extends Fragment {
+public class PrWorkerList extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class QaWorkerList extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public QaWorkerList() {
+    public PrWorkerList() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class QaWorkerList extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment QaWorkerList.
+     * @return A new instance of fragment PrWorkerList.
      */
     // TODO: Rename and change types and number of parameters
-    public static QaWorkerList newInstance(String param1, String param2) {
-        QaWorkerList fragment = new QaWorkerList();
+    public static PrWorkerList newInstance(String param1, String param2) {
+        PrWorkerList fragment = new PrWorkerList();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class QaWorkerList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_qa_worker_list, container, false);
+        return inflater.inflate(R.layout.fragment_pr_worker_list, container, false);
     }
 }

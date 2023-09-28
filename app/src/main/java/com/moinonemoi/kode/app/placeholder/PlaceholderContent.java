@@ -1,4 +1,4 @@
-package com.moinonemoi.kode.test.placeholder;
+package com.moinonemoi.kode.app.placeholder;
 
 import java.util.ArrayList;
 import java.util.HashMap;

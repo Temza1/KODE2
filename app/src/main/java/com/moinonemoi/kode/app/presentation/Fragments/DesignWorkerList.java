@@ -1,4 +1,4 @@
-package com.moinonemoi.kode.Fragments;
+package com.moinonemoi.kode.app.presentation.Fragments;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.moinonemoi.kode.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ManagmentWorkerList#newInstance} factory method to
+ * Use the {@link DesignWorkerList#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ManagmentWorkerList extends Fragment {
+public class DesignWorkerList extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class ManagmentWorkerList extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ManagmentWorkerList() {
+    public DesignWorkerList() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class ManagmentWorkerList extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ManagmentWorkerList.
+     * @return A new instance of fragment DesignWorkerList.
      */
     // TODO: Rename and change types and number of parameters
-    public static ManagmentWorkerList newInstance(String param1, String param2) {
-        ManagmentWorkerList fragment = new ManagmentWorkerList();
+    public static DesignWorkerList newInstance(String param1, String param2) {
+        DesignWorkerList fragment = new DesignWorkerList();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class ManagmentWorkerList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_managment_worker_list, container, false);
+        return inflater.inflate(R.layout.fragment_design_worker_list, container, false);
     }
 }
