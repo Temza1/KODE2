@@ -1,6 +1,5 @@
 package com.moinonemoi.kode.app.presentation;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.UserViewHolder
 
     public void setUsers(List<Item> users) {
         this.users = users;
-        notifyDataSetChanged();
     }
 
     @NonNull
@@ -47,13 +45,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.UserViewHolder
         holder.userTagTextView.setText(user.getUserTag());
         holder.positionTextView.setText(user.getPosition());
 
-        try {
-            Glide.with(holder.itemView)
-                    .load(user.getAvatarUrl())
-                    .into(holder.circleImageViewAvatar);
-        } catch (Exception e) {
-            Log.e(LOG_ADAPTER,"ошибка с glide");
-        }
+        Glide.with(holder.itemView)
+                .load(user.getAvatarUrl())
+                .into(holder.circleImageViewAvatar);
 
     }
 

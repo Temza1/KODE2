@@ -1,6 +1,7 @@
-package com.moinonemoi.kode;
+package com.moinonemoi.kode.app.domain;
 
-import retrofit2.Call;
+import com.moinonemoi.kode.app.domain.ApiService;
+
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;

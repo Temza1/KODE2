@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
-    tools:context=".app.presentation.presentation.TestActivity">
+    tools:context=".app.presentation.TestActivity">
 
     <FrameLayout
         android:id="@+id/frameLayoutTestActivity"

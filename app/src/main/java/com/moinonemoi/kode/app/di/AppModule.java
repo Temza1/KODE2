@@ -1,6 +1,7 @@
 package com.moinonemoi.kode.app.di;
 
-import com.moinonemoi.kode.app.presentation.presentation.FirstFragmentPresenter;
+
+import com.moinonemoi.kode.app.presentation.FirstFragmentPresenter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -8,9 +9,8 @@ import dagger.Provides;
 @Module
 public class AppModule {
 
-    private FirstFragmentPresenter presenter;
-
+    @Provides
     public FirstFragmentPresenter providePresenter() {
-        return presenter;
+        return new FirstFragmentPresenter();
     }
 }

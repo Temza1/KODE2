@@ -1,6 +1,6 @@
-package com.moinonemoi.kode.app.presentation.presentation;
+package com.moinonemoi.kode.app.presentation;
 
-import com.moinonemoi.kode.ApiService;
+import com.moinonemoi.kode.app.domain.ApiService;
 import com.moinonemoi.kode.app.data.Item;
 import com.moinonemoi.kode.app.data.UsersDao;
 
@@ -19,6 +19,8 @@ public class FirstFragmentPresenter implements FragmentPresenter{
     private ApiService apiService;
     private CompositeDisposable compositeDisposable;
     private FragmentView view;
+
+
 
     public void loadUsers() {
         Disposable disposable = apiService.loadUsers()
