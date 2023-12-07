@@ -1,4 +1,4 @@
-package com.moinonemoi.kode;
+package com.moinonemoi.kode.app.presentation.main.entity;
 
 public class Category {
 

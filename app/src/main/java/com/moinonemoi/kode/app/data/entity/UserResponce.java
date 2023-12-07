@@ -1,5 +1,5 @@
 
-package com.moinonemoi.kode.app.data;
+package com.moinonemoi.kode.app.data.entity;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

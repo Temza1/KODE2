@@ -2,7 +2,7 @@ package com.moinonemoi.kode.app.domain;
 
 import android.database.Observable;
 
-import com.moinonemoi.kode.app.data.Item;
+import com.moinonemoi.kode.app.data.entity.Item;
 
 import java.util.List;
 

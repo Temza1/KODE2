@@ -1,32 +1,22 @@
-package com.moinonemoi.kode.app.presentation;
+package com.moinonemoi.kode.app.presentation.main;
 
 import android.app.Application;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.moinonemoi.kode.app.App;
-import com.moinonemoi.kode.app.data.Item;
 import com.moinonemoi.kode.R;
 
-import java.util.List;
 
-import javax.inject.Inject;
-
-
-public class FirstFragment extends Fragment implements View.OnClickListener, SearchView.OnQueryTextListener {
+public class MainFragment extends Fragment implements View.OnClickListener, SearchView.OnQueryTextListener {
 
     public static final String LOG_FF = "FirstFragment";
 
@@ -34,12 +24,13 @@ public class FirstFragment extends Fragment implements View.OnClickListener, Sea
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
 
         SearchView searchView = view.findViewById(R.id.searchView);
         ImageButton sortIcon = view.findViewById(R.id.sortIcon);
 
+        sortIcon.setOnClickListener(this);
         searchView.setOnQueryTextListener(this);
 
         return view;
@@ -49,13 +40,7 @@ public class FirstFragment extends Fragment implements View.OnClickListener, Sea
     public void onViewCreated(@NonNull View view,Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Application application = requireActivity().getApplication();
 
-
-    }
-
-    private SearchView getSearchView(SearchView view) {
-        return view;
     }
 
 

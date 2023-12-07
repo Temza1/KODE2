@@ -1,11 +1,6 @@
 package com.moinonemoi.kode.app.di;
 
-import static com.moinonemoi.kode.app.data.UsersDataBase.DB_NAME;
-
-import androidx.room.Room;
-
-import com.moinonemoi.kode.app.data.ApiService;
-import com.moinonemoi.kode.app.data.UsersDataBase;
+import com.moinonemoi.kode.app.data.api.ApiService;
 import com.moinonemoi.kode.app.domain.GetWorkerListUseCase;
 import com.moinonemoi.kode.app.domain.WorkerListRepository;
 

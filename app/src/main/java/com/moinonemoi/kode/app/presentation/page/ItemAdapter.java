@@ -1,7 +1,5 @@
-package com.moinonemoi.kode.app.presentation;
+package com.moinonemoi.kode.app.presentation.page;
 
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.moinonemoi.kode.app.data.Item;
+import com.moinonemoi.kode.app.data.entity.Item;
 import com.moinonemoi.kode.R;
 
 import java.util.ArrayList;
@@ -68,7 +66,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.UserViewHolder
         TextView userTagTextView;
         TextView positionTextView;
         CircleImageView circleImageViewAvatar;
-        Drawable defaultDrawable;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);

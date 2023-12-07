@@ -1,4 +1,4 @@
-package com.moinonemoi.kode.app.data;
+package com.moinonemoi.kode.app.data.repository;
 
 import android.database.Observable;
 

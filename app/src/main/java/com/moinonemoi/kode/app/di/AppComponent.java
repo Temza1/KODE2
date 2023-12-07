@@ -1,13 +1,13 @@
 package com.moinonemoi.kode.app.di;
 
-import com.moinonemoi.kode.app.presentation.FirstFragment;
-import com.moinonemoi.kode.app.presentation.SecondaryFragment;
+import com.moinonemoi.kode.app.presentation.main.MainFragment;
+import com.moinonemoi.kode.app.presentation.page.PageFragment;
 
 import dagger.Component;
 
 @Component(modules = {AppModule.class, DataModule.class, DomainModule.class})
 public interface AppComponent {
 
-    void inject(SecondaryFragment fragment);
-    void inject(FirstFragment fragment);
+    void inject(PageFragment fragment);
+    void inject(MainFragment fragment);
 }

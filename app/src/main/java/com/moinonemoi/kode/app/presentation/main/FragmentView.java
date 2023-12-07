@@ -1,6 +1,6 @@
-package com.moinonemoi.kode.app.presentation;
+package com.moinonemoi.kode.app.presentation.main;
 
-import com.moinonemoi.kode.app.data.Item;
+import com.moinonemoi.kode.app.data.entity.Item;
 
 import java.util.List;
 

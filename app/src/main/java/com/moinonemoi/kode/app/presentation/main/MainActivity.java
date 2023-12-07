@@ -1,4 +1,4 @@
-package com.moinonemoi.kode;
+package com.moinonemoi.kode.app.presentation.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,7 +7,10 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
-
+import com.moinonemoi.kode.R;
+import com.moinonemoi.kode.app.presentation.main.CategoryAdapter;
+import com.moinonemoi.kode.app.presentation.main.FragmentAdapter;
+@Deprecated
 public class MainActivity extends AppCompatActivity {
 
     public RecyclerView recyclerViewCategory;

@@ -1,9 +1,8 @@
-package com.moinonemoi.kode.app;
+package com.moinonemoi.kode.app.base;
 
 import android.app.Application;
 
 import com.moinonemoi.kode.app.di.AppComponent;
-import com.moinonemoi.kode.app.di.DaggerAppComponent;
 
 public class App extends Application {
 
@@ -16,6 +15,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        appComponent = DaggerAppComponent.create();
+        /*appComponent = DaggerAppComponent.create();*/
     }
 }

@@ -1,5 +1,5 @@
 
-package com.moinonemoi.kode.app.data;
+package com.moinonemoi.kode.app.data.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

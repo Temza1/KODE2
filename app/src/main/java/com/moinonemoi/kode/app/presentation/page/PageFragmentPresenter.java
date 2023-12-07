@@ -1,11 +1,11 @@
-package com.moinonemoi.kode.app.presentation;
+package com.moinonemoi.kode.app.presentation.page;
 
 import android.app.Application;
 
-import com.moinonemoi.kode.app.data.UsersDataBase;
-import com.moinonemoi.kode.app.data.ApiFactory;
-import com.moinonemoi.kode.app.data.ApiService;
-import com.moinonemoi.kode.app.data.Item;
+import com.moinonemoi.kode.app.data.api.ApiFactory;
+import com.moinonemoi.kode.app.data.api.ApiService;
+import com.moinonemoi.kode.app.data.entity.Item;
+import com.moinonemoi.kode.app.presentation.main.FragmentView;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import io.reactivex.rxjava3.functions.Action;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class FirstFragmentPresenter implements FragmentPresenter{
+public class PageFragmentPresenter implements FragmentPresenter {
 
     private ApiService apiService = ApiFactory.apiService;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();

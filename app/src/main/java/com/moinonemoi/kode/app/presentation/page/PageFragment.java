@@ -1,4 +1,4 @@
-package com.moinonemoi.kode.app.presentation;
+package com.moinonemoi.kode.app.presentation.page;
 
 import android.app.Application;
 import android.os.Bundle;
@@ -13,20 +13,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.moinonemoi.kode.R;
-import com.moinonemoi.kode.app.App;
-import com.moinonemoi.kode.app.data.Item;
+import com.moinonemoi.kode.app.base.App;
+import com.moinonemoi.kode.app.data.entity.Item;
+import com.moinonemoi.kode.app.presentation.main.FragmentView;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
 
-public class SecondaryFragment extends Fragment implements FragmentView {
+public class PageFragment extends Fragment implements FragmentView {
 
     private ItemAdapter itemAdapter;
 
     @Inject
-    FirstFragmentPresenter presenter;
+    PageFragmentPresenter presenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class SecondaryFragment extends Fragment implements FragmentView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_secondary, container, false);
+        View view = inflater.inflate(R.layout.fragment_page, container, false);
 
         RecyclerView recyclerViewUsers = view.findViewById(R.id.recyclerViewUsers);
         setItemAdapter(recyclerViewUsers);

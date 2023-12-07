@@ -7,15 +7,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.moinonemoi.kode.R;
+import com.moinonemoi.kode.app.presentation.main.MainFragment;
 
 public class TestActivity extends AppCompatActivity {
 
-    FirstFragment fragment;
+    MainFragment fragment;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        fragment = new FirstFragment();
+        fragment = new MainFragment();
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
