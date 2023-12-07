@@ -1,5 +1,7 @@
 package com.moinonemoi.kode.app.presentation;
 
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.UserViewHolder> {
+
 
     public static final String LOG_ADAPTER = "ItemAdapter";
 
@@ -40,15 +43,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.UserViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+
+
         Item user = users.get(position);
         holder.nameTextView.setText(user.getFullName());
         holder.userTagTextView.setText(user.getUserTag());
         holder.positionTextView.setText(user.getPosition());
 
         Glide.with(holder.itemView)
-                .load(user.getAvatarUrl())
-                .into(holder.circleImageViewAvatar);
-
+                    .load(user.getAvatarUrl())
+                    .error(R.drawable.ic_launcher_background)
+                    .into(holder.circleImageViewAvatar);
     }
 
 
@@ -63,6 +68,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.UserViewHolder
         TextView userTagTextView;
         TextView positionTextView;
         CircleImageView circleImageViewAvatar;
+        Drawable defaultDrawable;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -19,7 +19,7 @@ public class TestActivity extends AppCompatActivity {
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
-        ft.add(R.id.frameLayoutTestActivity,fragment);
+        ft.add(R.id.frameLayoutTestActivity,fragment).commit();
     }
 
 }

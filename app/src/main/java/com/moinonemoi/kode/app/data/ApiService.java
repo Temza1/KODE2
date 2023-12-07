@@ -1,4 +1,4 @@
-package com.moinonemoi.kode.app.domain;
+package com.moinonemoi.kode.app.data;
 
 import com.moinonemoi.kode.app.data.Item;
 

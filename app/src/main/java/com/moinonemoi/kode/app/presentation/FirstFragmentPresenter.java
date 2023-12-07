@@ -1,8 +1,11 @@
 package com.moinonemoi.kode.app.presentation;
 
-import com.moinonemoi.kode.app.domain.ApiService;
+import android.app.Application;
+
+import com.moinonemoi.kode.app.data.UsersDataBase;
+import com.moinonemoi.kode.app.data.ApiFactory;
+import com.moinonemoi.kode.app.data.ApiService;
 import com.moinonemoi.kode.app.data.Item;
-import com.moinonemoi.kode.app.data.UsersDao;
 
 import java.util.List;
 
@@ -15,10 +18,14 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class FirstFragmentPresenter implements FragmentPresenter{
 
-    private UsersDao usersDao;
-    private ApiService apiService;
-    private CompositeDisposable compositeDisposable;
-    private FragmentView view;
+    private ApiService apiService = ApiFactory.apiService;
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private FragmentView fragmentView;
+    private UsersDataBase userDB;
+
+    public void attachView(FragmentView fragmentView) {
+        this.fragmentView = fragmentView;
+    }
 
 
 
@@ -41,12 +48,12 @@ public class FirstFragmentPresenter implements FragmentPresenter{
     }
 
     public void addDB(List<Item> users) {
-        Disposable disposable = usersDao.add(users).subscribeOn(Schedulers.io())
+        Disposable disposable = userDB.usersDao().add(users).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action() {
                     @Override
                     public void run() throws Throwable {
-                        view.showResult(users);
+                        fragmentView.showResult(users);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -56,6 +63,10 @@ public class FirstFragmentPresenter implements FragmentPresenter{
                 });
 
         compositeDisposable.add(disposable);
+    }
+
+    public void initDB(Application application) {
+        userDB = UsersDataBase.getInstance(application);
     }
 
 

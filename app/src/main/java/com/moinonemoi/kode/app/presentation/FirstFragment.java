@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.moinonemoi.kode.app.App;
 import com.moinonemoi.kode.app.data.Item;
@@ -23,13 +26,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 
-public class FirstFragment extends Fragment implements FragmentView{
+public class FirstFragment extends Fragment implements View.OnClickListener, SearchView.OnQueryTextListener {
 
     public static final String LOG_FF = "FirstFragment";
-
-    private ItemAdapter itemAdapter;
-    @Inject FirstFragmentPresenter presenter;
-
 
 
     @Override
@@ -37,18 +36,11 @@ public class FirstFragment extends Fragment implements FragmentView{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_first, container, false);
 
-        RecyclerView recyclerViewUsers = view.findViewById(R.id.recyclerViewUsers);
-        recyclerViewUsers.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
 
-        if(container == null) {
-            Log.d(LOG_FF,"КОНТЕЙНЕР ПУСТ");
-        }
+        SearchView searchView = view.findViewById(R.id.searchView);
+        ImageButton sortIcon = view.findViewById(R.id.sortIcon);
 
-        itemAdapter = new ItemAdapter();
-        recyclerViewUsers.setAdapter(itemAdapter);
-        if(itemAdapter == null) {
-            Log.d(LOG_FF,"АДАПТЕР ПУСТ");
-        }
+        searchView.setOnQueryTextListener(this);
 
         return view;
     }
@@ -57,26 +49,29 @@ public class FirstFragment extends Fragment implements FragmentView{
     public void onViewCreated(@NonNull View view,Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         Application application = requireActivity().getApplication();
-        /*UsersDataBase usersDataBase = UsersDataBase.getInstance(application);*/
-        App.appComponent.inject(this);
-        if(presenter != null) {
-            presenter.loadUsers();
-        } else {
-            Log.d(LOG_FF,"ОШИБКА НAЛ");
-        }
-
-        /*viewModel.loadUsers(itemAdapter);*/
 
 
     }
 
-
+    private SearchView getSearchView(SearchView view) {
+        return view;
+    }
 
 
     @Override
-    public void showResult(List<Item> users) {
-            itemAdapter.setUsers(users);
+    public void onClick(View view) {
+
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        //метод filterSearch(String newText)
+        return false;
     }
 }

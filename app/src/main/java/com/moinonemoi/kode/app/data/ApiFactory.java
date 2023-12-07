@@ -1,6 +1,4 @@
-package com.moinonemoi.kode.app.domain;
-
-import com.moinonemoi.kode.app.domain.ApiService;
+package com.moinonemoi.kode.app.data;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
