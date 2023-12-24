@@ -1,10 +1,12 @@
 package com.moinonemoi.kode.app.presentation.page;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,10 +24,24 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.UserViewHolder
 
     public static final String LOG_ADAPTER = "ItemAdapter";
 
+    private OnWorkerClickListenerInfo onWorkerClickListenerInfo;
+
+    public void setWorkerClickListenerInfo(OnWorkerClickListenerInfo onWorkerClickListenerInfo) {
+        this.onWorkerClickListenerInfo = onWorkerClickListenerInfo;
+    }
+
     private List<Item> users = new ArrayList<>();
 
-    public void setUsers(List<Item> users) {
-        this.users = users;
+    public void setUsers(List<Item> usersList) {
+        if(users != usersList) {
+            this.users = usersList;
+            notifyDataSetChanged();
+        }
+
+        if(users == usersList) {
+            Log.d(LOG_ADAPTER,"попытка передать один и тот же список");
+        }
+
     }
 
     @NonNull
@@ -48,10 +64,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.UserViewHolder
         holder.userTagTextView.setText(user.getUserTag());
         holder.positionTextView.setText(user.getPosition());
 
+
+
         Glide.with(holder.itemView)
                     .load(user.getAvatarUrl())
                     .error(R.drawable.ic_launcher_background)
                     .into(holder.circleImageViewAvatar);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onWorkerClickListenerInfo.onClickWorker(user);
+            }
+        });
+
+
     }
 
 
@@ -75,6 +102,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.UserViewHolder
             circleImageViewAvatar = itemView.findViewById(R.id.circleImageViewAvatar);
         }
     }
+
+    interface OnWorkerClickListenerInfo {
+        public void onClickWorker(Item item);
+    }
+
 
 
 }

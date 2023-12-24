@@ -7,18 +7,29 @@ import androidx.annotation.NonNull;
 
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.bumptech.glide.manager.SupportRequestManagerFragment;
 import com.moinonemoi.kode.R;
+import com.moinonemoi.kode.app.data.entity.Item;
+import com.moinonemoi.kode.app.presentation.page.PageFragment;
+import com.moinonemoi.kode.app.presentation.page.PageFragmentPresenter;
+
+import java.util.List;
 
 
-public class MainFragment extends Fragment implements View.OnClickListener, SearchView.OnQueryTextListener {
+public class MainFragment extends Fragment{
 
-    public static final String LOG_FF = "FirstFragment";
+    public PageFragmentPresenter presenter = new PageFragmentPresenter();
+    public PageFragment fragment;
+
+
 
 
     @Override
@@ -27,11 +38,11 @@ public class MainFragment extends Fragment implements View.OnClickListener, Sear
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
 
-        SearchView searchView = view.findViewById(R.id.searchView);
-        ImageButton sortIcon = view.findViewById(R.id.sortIcon);
-
-        sortIcon.setOnClickListener(this);
-        searchView.setOnQueryTextListener(this);
+//        SearchView searchView = view.findViewById(R.id.searchView);
+//        ImageButton sortIcon = view.findViewById(R.id.sortIcon);
+//
+//        sortIcon.setOnClickListener(this);
+//        searchView.setOnQueryTextListener(this);
 
         return view;
     }
@@ -40,23 +51,13 @@ public class MainFragment extends Fragment implements View.OnClickListener, Sear
     public void onViewCreated(@NonNull View view,Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        fragment = new PageFragment();
+
+        FragmentManager manager = requireActivity().getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+        ft.add(R.id.page_fragment_container,fragment).commit();
 
     }
 
 
-    @Override
-    public void onClick(View view) {
-
-    }
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        //метод filterSearch(String newText)
-        return false;
-    }
 }

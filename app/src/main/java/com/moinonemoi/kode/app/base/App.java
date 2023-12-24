@@ -6,11 +6,11 @@ import com.moinonemoi.kode.app.di.AppComponent;
 
 public class App extends Application {
 
-    static public AppComponent appComponent;
+    /*static public AppComponent appComponent;
 
     public AppComponent getAppComponent() {
         return appComponent;
-    }
+    }*/
 
     @Override
     public void onCreate() {

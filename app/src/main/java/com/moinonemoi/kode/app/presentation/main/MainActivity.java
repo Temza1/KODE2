@@ -9,15 +9,14 @@ import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
 import com.moinonemoi.kode.R;
 import com.moinonemoi.kode.app.presentation.main.CategoryAdapter;
-import com.moinonemoi.kode.app.presentation.main.FragmentAdapter;
 @Deprecated
 public class MainActivity extends AppCompatActivity {
 
-    public RecyclerView recyclerViewCategory;
+    /*public RecyclerView recyclerViewCategory;
     CategoryAdapter categoryAdapter;
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
-    private FragmentAdapter adapter;
+    *//*private FragmentAdapter adapter;*//*
 
 
     @Override
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initView();
-        /*tabLayout = findViewById(R.id.tabLayout);
+        tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewPager2);
 
         tabLayout.addTab(tabLayout.newTab().setText("Hi"));
@@ -36,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         adapter = new FragmentAdapter(fragmentManager,getLifecycle());
-        viewPager2.setAdapter(adapter);*/
+        viewPager2.setAdapter(adapter);
 
-       /* tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager2.setCurrentItem(tab.getPosition());
@@ -53,18 +52,16 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
 
             }
-        });*/
+        });
 
-       /* viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
-*/
 
 
-/*
         List<Category> categories = new ArrayList<>();
         categories.add(new Category(1,"android"));
         categories.add(new Category(2,"ios"));
@@ -79,18 +76,15 @@ public class MainActivity extends AppCompatActivity {
         categories.add(new Category(12,"support"));
         categories.add(new Category(13,"analytics"));
 
-        setRecyclerViewCategory(categories);*/
+        setRecyclerViewCategory(categories);
     }
 
-    private void initView() {
-    }
-   /* private void setRecyclerViewCategory (List<Category> categories) {
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+    private void setRecyclerViewCategory (List<Category> categories) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewCategory = findViewById(R.id.recyclerViewCategory);
         recyclerViewCategory.setLayoutManager(layoutManager);
-        categoryAdapter = new CategoryAdapter(this,categories);
+        categoryAdapter = new CategoryAdapter(this, categories);
         recyclerViewCategory.setAdapter(categoryAdapter);
-
     }*/
 
 

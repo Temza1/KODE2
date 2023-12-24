@@ -1,10 +1,12 @@
 package com.moinonemoi.kode.app.domain;
 
-import android.database.Observable;
 
 import com.moinonemoi.kode.app.data.entity.Item;
+import com.moinonemoi.kode.app.data.entity.UserResponce;
 
 import java.util.List;
+
+import io.reactivex.rxjava3.core.Observable;
 
 public class GetWorkerListUseCase  {
 
@@ -14,6 +16,11 @@ public class GetWorkerListUseCase  {
 
     public GetWorkerListUseCase(WorkerListRepository workerListRepository) {
         this.workerListRepository = workerListRepository;
+    }
+
+
+    public Observable<List<Item>> execute() {
+        return workerListRepository.getWorkerList();
     }
 
     public Observable<List<Item>> execute(String type) {

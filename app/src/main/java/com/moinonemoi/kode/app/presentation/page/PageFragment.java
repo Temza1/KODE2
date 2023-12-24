@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,22 +18,26 @@ import com.moinonemoi.kode.app.base.App;
 import com.moinonemoi.kode.app.data.entity.Item;
 import com.moinonemoi.kode.app.presentation.main.FragmentView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 
-public class PageFragment extends Fragment implements FragmentView {
+public class PageFragment extends Fragment implements FragmentView, View.OnClickListener {
 
+
+    public static final String LOG_PAGE_FRAGMENT = "PageFragment";
     private ItemAdapter itemAdapter;
 
-    @Inject
-    PageFragmentPresenter presenter;
+
+
+    PageFragmentPresenter presenter = new PageFragmentPresenter();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        App.appComponent.inject(this);
+        /*App.appComponent.inject(this);*/
     }
 
     @Override
@@ -54,16 +59,26 @@ public class PageFragment extends Fragment implements FragmentView {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        Application application = requireActivity().getApplication();
-
         presenter.attachView(this);
-        presenter.initDB(application);
-        presenter.loadUsers();
+        presenter.getWorkerList();
         super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
     public void showResult(List<Item> users) {
+
         itemAdapter.setUsers(users);
+        Log.d(LOG_PAGE_FRAGMENT,"список отправлен в адаптер");
+
+
     }
+
+    @Override
+    public void onClick(View view) {
+    }
+
+
+
+
+
 }

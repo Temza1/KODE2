@@ -9,7 +9,7 @@ import dagger.Module;
 @Module
 public class DataModule {
 
-    public GetWorkerListUseCase provideGetWorkerListUseCase(WorkerListRepository workerListRepository) {
+    /*public GetWorkerListUseCase provideGetWorkerListUseCase(WorkerListRepository workerListRepository) {
         return new GetWorkerListUseCase(workerListRepository);
     }
 
@@ -24,7 +24,7 @@ public class DataModule {
 
     public UsersDataBase provideUserDB() {
         return UsersDataBase.getInstance()
-    }
+    }*/
 
 
 
