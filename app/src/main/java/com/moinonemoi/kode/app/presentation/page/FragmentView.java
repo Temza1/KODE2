@@ -1,4 +1,4 @@
-package com.moinonemoi.kode.app.presentation.main;
+package com.moinonemoi.kode.app.presentation.page;
 
 import com.moinonemoi.kode.app.data.entity.Item;
 

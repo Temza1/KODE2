@@ -1,6 +1,5 @@
 package com.moinonemoi.kode.app.presentation.page;
 
-import android.app.Application;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,21 +13,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.moinonemoi.kode.R;
-import com.moinonemoi.kode.app.base.App;
 import com.moinonemoi.kode.app.data.entity.Item;
-import com.moinonemoi.kode.app.presentation.main.FragmentView;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
 
 
 public class PageFragment extends Fragment implements FragmentView, View.OnClickListener {
 
 
     public static final String LOG_PAGE_FRAGMENT = "PageFragment";
+    public static final String CATEGORY_NUMBER = "categoryNumber";
+    public static final String SEARCH_TEXT = "searchText";
+    public static final String BOOLEAN_SORT = "booleanSort";
+
     private ItemAdapter itemAdapter;
+
+    private int positionFragmentAdapter;
+    private String searchText;
+    private Boolean booleanSort;
 
 
 
@@ -37,6 +39,11 @@ public class PageFragment extends Fragment implements FragmentView, View.OnClick
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(getArguments() != null) {
+            positionFragmentAdapter = getArguments().getInt(CATEGORY_NUMBER);
+            searchText = getArguments().getString(SEARCH_TEXT);
+            booleanSort = getArguments().getBoolean(BOOLEAN_SORT);
+        }
         /*App.appComponent.inject(this);*/
     }
 
@@ -60,7 +67,17 @@ public class PageFragment extends Fragment implements FragmentView, View.OnClick
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         presenter.attachView(this);
-        presenter.getWorkerList();
+
+        if(searchText != null && !booleanSort) {
+
+        } else if (searchText != null) {
+
+        } else if (!booleanSort){
+
+        } else {
+            presenter.getWorkerList();
+        }
+
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -76,6 +93,39 @@ public class PageFragment extends Fragment implements FragmentView, View.OnClick
     @Override
     public void onClick(View view) {
     }
+
+    public void addArgs(int position,Fragment fragment) {
+        Bundle args = new Bundle();
+        args.putInt(CATEGORY_NUMBER,position);
+        fragment.setArguments(args);
+    }
+
+    public void addArgs(int position,String searchText,Fragment fragment) {
+        Bundle args = new Bundle();
+        args.putInt(CATEGORY_NUMBER,position);
+        args.putString(SEARCH_TEXT,searchText);
+        fragment.setArguments(args);
+    }
+
+    public void addArgs(int position,String searchText,Boolean booleanSort,Fragment fragment) {
+        Bundle args = new Bundle();
+        args.putInt(CATEGORY_NUMBER,position);
+        args.putString(SEARCH_TEXT,searchText);
+        args.putBoolean(BOOLEAN_SORT,booleanSort);
+        fragment.setArguments(args);
+
+    }
+
+    public void addArgs(int position,Boolean booleanSort,Fragment fragment) {
+        Bundle args = new Bundle();
+        args.putInt(CATEGORY_NUMBER,position);
+        args.putBoolean(BOOLEAN_SORT,booleanSort);
+        fragment.setArguments(args);
+    }
+
+
+
+
 
 
 
